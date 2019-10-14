@@ -20,7 +20,7 @@ Hipoteze:
 * Kako je zrasla vrednost povprečenga nakupa po prodaji Neymarja (ali je zrasla?)
 * Števio nakupov in prodaj (kako je bilo z nakupi v času 'zlate generacije' La Masie - manj?)
 * So Brazilci v povprečju najdražji (pri prestopih) pri Barceloni?
-* Katere pozicije prevladujejo?
+* Katere pozicije in starosti (v povprečju) Barcelona največ 'kupuje' in katere 'prodaja'?
 
 
 * v #sezona bom vnesel sezono v obliki letnica-letnica_kratko_+1 (npr. 2009-10)
