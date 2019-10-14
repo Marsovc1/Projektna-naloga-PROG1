@@ -19,7 +19,7 @@ Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Mas
 **Hipoteze:**
 * Ali Barcelona vedno več vlaga v nakupe in razlika med vrednostjo prihodov in odhodov raste?
 * Kako je zrasla vrednost povprečenga nakupa po prodaji Neymarja (ali je zrasla?)
-* Števio nakupov in prodaj (kako je bilo z nakupi v času 'zlate generacije' La Masie - manj?)
+* Število nakupov in prodaj (kako je bilo z nakupi v času 'zlate generacije' La Masie - manj?)
 * So Brazilci v povprečju najdražji (pri prestopih) pri Barceloni?
 * Katere pozicije in starosti (v povprečju) Barcelona največ 'kupuje' in katere 'prodaja'?
 
