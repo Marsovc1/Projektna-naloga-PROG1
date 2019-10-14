@@ -1,17 +1,26 @@
 # Projektna-naloga-PROG1
 
-Analiza (najdražjih) nogometnih prestopov in njihov vpliv na trg
+Analiza nogometnih prestopov FC Barcelona
 ==================================================================
 
-Analiziral bom najdražje prestope zadnjih 11 let (vključno s poletjem 2009*) njihov vpliv (povprečna vrednost prestopov Top 5 nogometnih lig)
-
+Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Masie) pri nogometnem klubu FC Barcelona.
 Podatki:
-
+* 'https://en.wikipedia.org/wiki/#sezona*_FC_Barcelona_season#Transfers_and_loans'
+* 'https://www.transfermarkt.com/fc-barcelona/alletransfers/verein/131'
+* Za vsako sezono bom pobral podatke odhodov in prihodov:
+  1. Klub iz katerega je oziroma v katerega je šel igralec
+  2. Cena prestopa
+  3. Ime in priimek
+  4. Državljanstvo
+  5. Vloga na igrišču (pozicija)
+  6. Starost
 
 Hipoteze:
-*Kako so najdražji prestopi vplivali na vrednosti ostalih prestopov?
-*Kateri klubi in državljanstva so vpleteni/a v najdražje prestope?
-*Kako se spreminjajo (rastejo) vrednosti prestopov?
+* Ali Barcelona vedno več vlaga v nakupe in razlika med vrednostjo prihodov in odhodov raste?
+* Kako je zrasla vrednost povprečenga nakupa po prodaji Neymarja (ali je zrasla?)
+* Števio nakupov in prodaj (kako je bilo z nakupi v času 'zlate generacije' La Masie - manj?)
+* So Brazilci v povprečju najdražji (pri prestopih) pri Barceloni?
+* Katere pozicije prevladujejo?
 
 
-* Prestop Cristiana Ronalda iz Manchester Uniteda v Real Madrid za takrat rekordnih 94 mio. €
+* v #sezona bom vnesel sezono v obliki letnica-letnica_kratko_+1 (npr. 2009-10)
