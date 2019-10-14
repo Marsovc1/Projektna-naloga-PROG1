@@ -4,7 +4,8 @@ Analiza nogometnih prestopov FC Barcelona
 ==================================================================
 
 Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Masie) pri nogometnem klubu FC Barcelona.
-Podatki:
+
+**Podatki:**
 * 'https://en.wikipedia.org/wiki/#sezona*_FC_Barcelona_season#Transfers_and_loans'
 * 'https://www.transfermarkt.com/fc-barcelona/alletransfers/verein/131'
 * Za vsako sezono bom pobral podatke odhodov in prihodov:
@@ -15,7 +16,7 @@ Podatki:
   5. Vloga na igrišču (pozicija)
   6. Starost
 
-Hipoteze:
+**Hipoteze:**
 * Ali Barcelona vedno več vlaga v nakupe in razlika med vrednostjo prihodov in odhodov raste?
 * Kako je zrasla vrednost povprečenga nakupa po prodaji Neymarja (ali je zrasla?)
 * Števio nakupov in prodaj (kako je bilo z nakupi v času 'zlate generacije' La Masie - manj?)
@@ -23,4 +24,4 @@ Hipoteze:
 * Katere pozicije in starosti (v povprečju) Barcelona največ 'kupuje' in katere 'prodaja'?
 
 
-* v #sezona bom vnesel sezono v obliki letnica-letnica_kratko_+1 (npr. 2009-10)
+*v #sezona bom vnesel sezono v obliki letnica-letnica_kratko_+1 (npr. 2009-10)
