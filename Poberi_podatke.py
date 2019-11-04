@@ -23,7 +23,24 @@ tekst = orodja.vsebina_datoteke(link+'2000')
 #dodam v BSoup
 soup = BeautifulSoup(tekst, 'html.parser')
 
-#tabela transfer out
-tabela = soup.find('table',class_='wikitable sortable', style="text-align: center;").tbody
-print(tabela)
+#table transfer out
+table = soup.find('table',class_='wikitable sortable', style="text-align: center;").tbody
+
+rows = table.find_all('tr')
+
+columns = [v.text.replace('\n','') for v in rows[0].find_all('th')]
+
+df = pd.DataFrame(columns=columns)
+for i in range(1, len(rows)-1):
+    tds = rows[i].find_all('td')
+    values =[td.text.replace('\n','') for td in tds]
+
+    df = df.append(pd.Series(values, index = columns), ignore_index = True)
+    del df['Source']
+    del df['Ends']
+    del df['EU']
+    print(df)
+
+df.to_csv(r'C:\Users\marsovc\Desktop\Fmf\Financna tretji letnik\Programiranje 1\Projektna-naloga-PROG1\\'+'data.csv',index=False)
+
 #Cilj: poberem title, če title ne obstaja poberem vsebino td, sicer ne poberem nič
