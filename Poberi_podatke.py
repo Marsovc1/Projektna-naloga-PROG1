@@ -1,10 +1,11 @@
 # link:  https://en.wikipedia.org/wiki/#sezona*_FC_Barcelona_season
-# leta: 2000-01, ..., 2018-19
+# leta: 2000-01, ..., 2018-19 in 2019-20
+# 18-19 in 19-20 so drugačni kot ostali
 
 from bs4 import BeautifulSoup
 import requests
 import orodja
-import pandas
+import pandas as pd
 
 #shranimo HTML datoteke pod imeni transfer20xy (glede na leto), v mapo html s pomočjo datoteke 'orodja'
 
@@ -20,10 +21,9 @@ for i in range(2000,2020):
 #s pomočjo orodja poberem vsebino
 tekst = orodja.vsebina_datoteke(link+'2000')
 #dodam v BSoup
-soup = BeautifulSoup(tekst, 'lxml')
+soup = BeautifulSoup(tekst, 'html.parser')
 
 #tabela transfer out
-tekst = soup.find('table',class_='wikitable sortable', style="text-align: center;")
-
-#Cilj: poberem Title oziroma td, če title ne obstaja
-tekst = tekst.find_all('tr')
+tabela = soup.find('table',class_='wikitable sortable', style="text-align: center;").tbody
+print(tabela)
+#Cilj: poberem title, če title ne obstaja poberem vsebino td, sicer ne poberem nič
