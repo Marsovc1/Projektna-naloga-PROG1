@@ -6,8 +6,7 @@ Analiza nogometnih prestopov FC Barcelona
 Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Masie) pri nogometnem klubu FC Barcelona.
 
 **Podatki:**
-* 'https://en.wikipedia.org/wiki/#sezona*_FC_Barcelona_season#Transfers_and_loans'
-* 'https://www.transfermarkt.com/fc-barcelona/alletransfers/verein/131'
+* 'https://en.wikipedia.org/wiki/20xy-xy+1_FC_Barcelona_season'
 * Za vsako sezono bom pobral podatke odhodov in prihodov:
   1. Klub iz katerega je oziroma v katerega je šel igralec
   2. Cena prestopa
