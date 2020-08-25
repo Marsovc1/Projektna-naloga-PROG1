@@ -10,7 +10,7 @@ Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Mas
 * Za vsako sezono bom pobral podatke odhodov in prihodov:
   1. Klub iz katerega je oziroma v katerega je šel igralec
   2. Cena prestopa
-  3. Ime in priimek
+  3. Ime
   4. Državljanstvo
   5. Vloga na igrišču (pozicija)
 
