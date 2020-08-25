@@ -6,7 +6,12 @@
         {
             "label": "Python",
             "type": "shell",
-            "command": "python -i \\\"${file}\\\""
+            "command": "python -i \\\"${file}\\\"",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
