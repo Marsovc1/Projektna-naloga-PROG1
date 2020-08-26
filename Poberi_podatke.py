@@ -109,7 +109,7 @@ def ustvari_df(vrstice,df,i,kam):
                 vrednost[9] = vrednost_prestop
 
                 if i in [2002, 2005]:
-                    if str(vrednost[9])!='Free' and str(vrednost[9])!='Loan' and str(vrednost[9])!='N/A':
+                    if str(vrednost[9]) not in ['Free','Loan','N/A']:
                         vrednost[9] = str(int(vrednost[9])/10**6)
 
                 #pri ceni je pri novejših še referenca, ki jo odstranim
@@ -119,7 +119,7 @@ def ustvari_df(vrstice,df,i,kam):
                 if str(vrednost[9])=='Free':
                     vrednost[9] = 0
 
-                if str(vrednost[9]) != 'N/A' and str(vrednost[9]) != 'Loan' and str(vrednost[9]) != '—' and str(vrednost[7]) != 'Loan' and str(vrednost[7]) != 'Loan return' and vrednost[6]!=42:
+                if str(vrednost[9]) not in ['N/A','Loan','—'] and str(vrednost[7]) != 'Loan' and str(vrednost[7]) != 'Loan return' and vrednost[6]!=42:
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[6],vrednost[9],i]
                     df.loc[j-1] = vrednost   
             else:
@@ -206,11 +206,13 @@ def shrani(i): #čas za zapisovanje tabel
     #dodam v BSoup
     soup = BeautifulSoup(tekst, 'html.parser')
 
+    #poimenujem stolpce df
+    stolpci = ['Ime', 'Državljanstvo', 'Pozicija', 'Klub', 'Cena', 'Leto']
+
     #table transfer IN
     tableIN = table_IN(i,soup)
     vrsticeIN = tableIN.find_all('tr')
-    stolpciIN = ['Ime', 'Državljanstvo', 'Pozicija', 'Klub', 'Cena', 'Leto']
-    dfIN = pd.DataFrame(columns=stolpciIN)
+    dfIN = pd.DataFrame(columns=stolpci)
 
     #table transfer OUT
         #analogno za transfer IN (zgoraj)
@@ -218,10 +220,8 @@ def shrani(i): #čas za zapisovanje tabel
     tableOUT = table_OUT(i,soup) 
     #poiščem vse vrstice
     vrsticeOUT = tableOUT.find_all('tr')  
-    #poimenujem stolpce
-    stolpciOUT = ['Ime', 'Državljanstvo', 'Pozicija', 'Klub', 'Cena', 'Leto'] 
     #ustvari df s pandas
-    dfOUT = pd.DataFrame(columns=stolpciOUT)
+    dfOUT = pd.DataFrame(columns=stolpci)
 
     ustvari_df(vrsticeIN,dfIN,i,'IN')
     ustvari_df(vrsticeOUT,dfOUT,i,'OUT')
