@@ -1,6 +1,7 @@
 Ime,Državljanstvo,Pozicija,Klub,Cena,Leto
-Eric Abidal,France,LB,Monaco,Free,2013
-Andreu Fontàs,Spain,CB,Celta Vigo,€1M,2013
-Marc Muniesa,Spain,CB,Stoke City,Free,2013
-David Villa,Spain,FW,Atlético Madrid,€5M,2013
-Thiago,Spain,CM,Bayern Munich,€25M,2013
+Eric Abidal,France,LB,Monaco,0,2013
+Andreu Fontàs,Spain,CB,Celta Vigo,1.0,2013
+Marc Muniesa,Spain,CB,Stoke City,0,2013
+Keirrison,Brazil,FW,Coritiba,0,2013
+David Villa,Spain,FW,Atlético Madrid,5.0,2013
+Thiago,Spain,CM,Bayern Munich,25.0,2013

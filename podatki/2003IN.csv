@@ -1,9 +1,11 @@
 Ime,Državljanstvo,Pozicija,Klub,Cena,Leto
-Ronaldinho,Brazil,FW,Paris Saint-Germain,€27M,2003
-Ricardo Quaresma,Portugal,MF,Sporting CP,€16.25M,2003
-Rüştü,Turkey,GK,Fenerbahçe,Free,2003
-Márquez,Mexico,DF,Monaco,€5.25M,2003
-Davids,Netherlands,MF,Juventus,€2M,2003
-Andrés Iniesta,Spain,MF,Youth system,Free,2003
-Víctor Valdés,Spain,GK,Youth system,Free,2003
-Oleguer,Spain,DF,Youth system,Free,2003
+Ronaldinho,Brazil,FW,Paris Saint-Germain,27.0,2003
+Ricardo Quaresma,Portugal,MF,Sporting CP,16.25,2003
+Rüştü,Turkey,GK,Fenerbahçe,0.0,2003
+Márquez,Mexico,DF,Monaco,5.25,2003
+Davids,Netherlands,MF,Juventus,2.0,2003
+V. Bronckhorst,Netherlands,DF,Arsenal,0.0,2003
+Mario,Spain,DF,Valladolid,0.0,2003
+Andrés Iniesta,Spain,MF,Youth system,0.0,2003
+Víctor Valdés,Spain,GK,Youth system,0.0,2003
+Oleguer,Spain,DF,Youth system,0.0,2003

@@ -1,6 +1,9 @@
 Ime,Državljanstvo,Pozicija,Klub,Cena,Leto
-Gerard,Spain,MF,Monaco,Free,2005
-Riquelme,Argentina,AM,Villarreal,"€7,000,000",2005
-Fábio Rochemback,Brazil,DM,Middlesbrough,"€1,500,000",2005
-Sergio García,Spain,FW,Zaragoza,"€1,500,000",2005
-Óscar López,Spain,DF,Betis,Free,2005
+Gerard,Spain,MF,Monaco,0.0,2005
+Riquelme,Argentina,AM,Villarreal,7.0,2005
+Fábio Rochemback,Brazil,DM,Middlesbrough,1.5,2005
+Sergio García,Spain,FW,Zaragoza,1.5,2005
+Saviola,Argentina,FW,Sevilla,0.0,2005
+Fernando Navarro,Spain,DF,Mallorca,0.0,2005
+Damià,Spain,MF,Racing Santander,0.0,2005
+Óscar López,Spain,DF,Betis,0.0,2005

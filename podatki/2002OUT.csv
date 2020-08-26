@@ -1,8 +1,10 @@
 Ime,Državljanstvo,Pozicija,Klub,Cena,Leto
-Arteta,Spain,MF,Rangers,€7.9M,2002
-Dutruel,France,GK,Alavés,€2.9M,2002
-Reina,Spain,GK,Villarreal,€0.75M,2002
-Rivaldo,Brazil,FW,Milan,Free,2002
-Abelardo,Spain,DF,Alavés,Free,2002
-Sergi,Spain,DF,Atlético Madrid,Free,2002
-Luis García,Spain,MF,Atlético Madrid,€3.6M,2002
+Arteta,Spain,MF,Rangers,7.9,2002
+Dutruel,France,GK,Alavés,2.9,2002
+Reina,Spain,GK,Villarreal,0.75,2002
+Rivaldo,Brazil,FW,Milan,0.0,2002
+Abelardo,Spain,DF,Alavés,0.0,2002
+Sergi,Spain,DF,Atlético Madrid,0.0,2002
+Luis García,Spain,MF,Atlético Madrid,3.6,2002
+Geovanni,Brazil,FW,Benfica,0.0,2002
+Alfonso,Spain,FW,Betis,0.0,2002

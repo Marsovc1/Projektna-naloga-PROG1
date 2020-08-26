@@ -1,12 +1,14 @@
 Ime,Državljanstvo,Pozicija,Klub,Cena,Leto
-Fàbregas,Spain,MF,Arsenal,€0.25M,2003
-de Boer,Netherlands,DF,Galatasaray,Free,2003
-Bonano,Argentina,GK,Murcia,Free,2003
-Christanval,France,DF,Marseille,Free,2003
-Alfonso,Spain,FW,Betis,Free,2003
-Andersson,Sweden,DF,Malmö FF,Free,2003
-Geovanni,Brazil,FW,Benfica,Free,2003
-Rochemback,Brazil,MF,Sporting CP,€2.5M,2003
-Enke,Germany,GK,Fenerbahçe,€0.4M,2003
-Trashorras,Spain,MF,Real Madrid,Free,2003
-Tortolero,Spain,DF,Elche,Free,2003
+Fàbregas,Spain,MF,Arsenal,0.25,2003
+de Boer,Netherlands,DF,Galatasaray,0.0,2003
+Bonano,Argentina,GK,Murcia,0.0,2003
+Christanval,France,DF,Marseille,0.0,2003
+Alfonso,Spain,FW,Betis,0.0,2003
+Andersson,Sweden,DF,Malmö FF,0.0,2003
+Geovanni,Brazil,FW,Benfica,0.0,2003
+Riquelme,Argentina,MF,Villarreal,0.0,2003
+Rochemback,Brazil,MF,Sporting CP,2.5,2003
+Navarro,Spain,DF,Albacete,0.0,2003
+Enke,Germany,GK,Fenerbahçe,0.4,2003
+Trashorras,Spain,MF,Real Madrid,0.0,2003
+Tortolero,Spain,DF,Elche,0.0,2003

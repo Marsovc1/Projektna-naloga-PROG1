@@ -1,7 +1,8 @@
 Ime,Državljanstvo,Pozicija,Klub,Cena,Leto
-Guardiola,Spain,MF,Brescia,Free,2001
-Litmanen,Finland,FW,Liverpool,Free,2001
-Zenden,Netherlands,MF,Chelsea,€8M,2001
-Simão,Portugal,MF,Benfica,€12M,2001
-Cuadrado,Spain,DF,Murcia,€0.2M,2001
-Petit,France,MF,Chelsea,€11.5M,2001
+Guardiola,Spain,MF,Brescia,0,2001
+Litmanen,Finland,FW,Liverpool,0,2001
+Zenden,Netherlands,MF,Chelsea,8.0,2001
+Simão,Portugal,MF,Benfica,12.0,2001
+Cuadrado,Spain,DF,Murcia,0.2,2001
+Petit,France,MF,Chelsea,11.5,2001
+Alfonso,Spain,FW,Marseille,0,2001

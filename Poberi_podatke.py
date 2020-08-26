@@ -51,16 +51,19 @@ def ustvari_df(vrstice,df,i,kam):
                     vrednost[5] = str(vrednost[5])[:-3]
                 if str(vrednost[5])[1]=='U':
                     vrednost[5] = str('Neznano')
-                
+                if str(vrednost[5]) == 'Free':
+                    vrednost[5]=0
+
                 #če je vrednost prestopa ni znana ni int => try/except
                 try:
-                    vrednost[5] = str('€'+str(int(vrednost[5])/10**6)+'M')
+                    vrednost[5] = str(str(int(vrednost[5])/10**6))
                 except ValueError:
                     vrednost[5] = 'Neznana' 
                 
+                
 
                 #če vrednost fee zavzame neke vrednosti  => je loan => ne upoštevam v analizi
-                if str(vrednost[5]) != 'N/A' and str(vrednost[5]) != 'Loan' and str(vrednost[5]) != '—':
+                if str(vrednost[5]) != 'N/A' and str(vrednost[5]) != 'Loan' and str(vrednost[5]) != '—' and vrednost[5]!= 'Neznana':
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[4],vrednost[5],i]
                     df.loc[j-1] = vrednost
         
@@ -86,26 +89,68 @@ def ustvari_df(vrstice,df,i,kam):
 
             #če imamo transfer OUT je wiki tabela krajša za 1 stolpec
             if kam == 'OUT':
-                if int(i)==2002:
-                    if str(vrednost[9])!='Free' and str(vrednost[9])!='Loan':
-                        vrednost[9]=vrednost[9].replace(',','')
-                        vrednost[9]=vrednost[9].replace('€','')
-                        vrednost[9] = str('€'+str(int(vrednost[9])/10**6)+'M')
+                #kar nekaj ne pretirano lepih reči v vrednosti prestopa
+                vrednost[9]=vrednost[9].replace(',','')
+                vrednost[9]=vrednost[9].replace('€','')
+                vrednost[9]=vrednost[9].replace('M','')
+                vrednost[9]=vrednost[9].replace('m','')
+                vrednost[9]=vrednost[9].replace('in variables','')
+                vrednost[9]=vrednost[9].replace('purchase option','')
+                vrednost[9]=vrednost[9].replace('[107]','')
+                vrednost[9]=vrednost[9].replace('variables','')
+                vrednost[9]=vrednost[9].replace(' ','')
+                vrednost[9]=vrednost[9].split('+')
 
-                 #pri ceni je pri novejših še referenca, ki jo odstranim
+                vrednost_prestop = 0
+                for fee in vrednost[9]:
+                    print(i)
+                    if fee not in ['N/A', 'Free', 'Loan', '—', 'Youthsyste', '']:
+                        vrednost_prestop += float(fee)
+                vrednost[9] = vrednost_prestop
+
+                if i in [2002, 2005]:
+                    if str(vrednost[9])!='Free' and str(vrednost[9])!='Loan' and str(vrednost[9])!='N/A':
+                        vrednost[9] = str(int(vrednost[9])/10**6)
+
+                #pri ceni je pri novejših še referenca, ki jo odstranim
                 if str(vrednost[9])[-1] == ']':
                     vrednost[9] = str(vrednost[9])[:-5]
+
+                if str(vrednost[9])=='Free':
+                    vrednost[9] = 0
 
                 if str(vrednost[9]) != 'N/A' and str(vrednost[9]) != 'Loan' and str(vrednost[9]) != '—' and str(vrednost[7]) != 'Loan' and str(vrednost[7]) != 'Loan return' and vrednost[6]!=42:
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[6],vrednost[9],i]
                     df.loc[j-1] = vrednost   
             else:
+                #kar nekaj ne pretirano lepih reči v vrednosti prestopa
+                vrednost[10]=vrednost[10].replace(',','')
+                vrednost[10]=vrednost[10].replace('€','')
+                vrednost[10]=vrednost[10].replace('M','')
+                vrednost[10]=vrednost[10].replace('m','')
+                vrednost[10]=vrednost[10].replace('in variables','')
+                vrednost[10]=vrednost[10].replace(' ','')
+                vrednost[10]=vrednost[10].replace(str('+SauelEto\'o[22]'),'')
+                vrednost[10]=vrednost[10].replace('+variables','')
+                vrednost[10]=vrednost[10].replace('+Suárezloan','')
+                vrednost[10]=vrednost[10].replace('variables','')
+                vrednost[10]=vrednost[10].replace('[a]','')
+                vrednost[10]=vrednost[10].split('+')
+
+                vrednost_prestop = 0
+                for fee in vrednost[10]:
+                    if fee not in ['N/A', 'Free', 'Loan', '—', 'Youthsyste', '']:
+                        vrednost_prestop += float(fee)
+                vrednost[10] = vrednost_prestop
+                    
+
                 #leto 2002, 2018 in 2019 imajo vrednosti prestopov z ',' torej npr 10,000,000
-                if int(i)==2002:
+                if i == 2002:
                     if str(vrednost[10])!='Free' and str(vrednost[10])!='Loan':
-                        vrednost[10]=vrednost[10].replace(',','')
-                        vrednost[10]=vrednost[10].replace('€','')
-                        vrednost[10] = str('€'+str(int(vrednost[10])/10**6)+'M')
+                        vrednost[10] = str(int(vrednost[10])/10**6)
+
+                elif str(vrednost[10]) == 'Free':
+                    vrednost[10] = 0
 
                 #zapišemo v vrstico, če je prestop samo posoja ga ne upoštevam
                 if str(vrednost[10]) != 'N/A' and str(vrednost[10]) != 'Loan' and str(vrednost[10]) != '—' and str(vrednost[7]) != 'Loan' and str(vrednost[7]) != 'Loan return':
