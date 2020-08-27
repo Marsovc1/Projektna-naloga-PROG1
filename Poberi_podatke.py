@@ -7,9 +7,6 @@ import requests
 from orodja import *
 import pandas as pd
 
-#kam shranim
-path = 'C:\\Users\\marsovc\\Desktop\\Fmf\\Dodiplomsko\\Financna 3. letnik\\Programiranje 1\\Projektna-naloga-PROG1\\html\\'
-
  # from 2k to 2020, probably calendar year 🤔
 def shrani_html():
     #s pomočjo orodja.py shranim spletne strani
@@ -103,7 +100,6 @@ def ustvari_df(vrstice,df,i,kam):
 
                 vrednost_prestop = 0
                 for fee in vrednost[9]:
-                    print(i)
                     if fee not in ['N/A', 'Free', 'Loan', '—', 'Youthsyste', '']:
                         vrednost_prestop += float(fee)
                 vrednost[9] = vrednost_prestop
@@ -157,7 +153,7 @@ def ustvari_df(vrstice,df,i,kam):
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[6],vrednost[10],i]
                     df.loc[j-1] = vrednost   
 
-    df.to_csv(str(str(i)+kam+'.csv'), index=False)   
+    df.to_csv(str('.\\podatki\\'+str(i)+kam+'.csv'), index=False)   
 
 def table_IN(i,soup): #kje se nahaja tabela wiki za transfer
     #i je letnica
@@ -201,7 +197,7 @@ def shrani(i): #čas za zapisovanje tabel
     #i je letnica
 
     #poiščem shranjeno datoteko (iz orodja.py)
-    tekst = vsebina_datoteke(path+str(i))
+    tekst = vsebina_datoteke('.\\html\\'+str(i))
 
     #dodam v BSoup
     soup = BeautifulSoup(tekst, 'html.parser')
