@@ -27,12 +27,12 @@ def ustvari_df(vrstice,df,i,kam):
 
         if i > 2017: #posebne wiki tabele
             if len(td) >0:
+                vrednost = [k.text.replace('\n','') for k in td]
+
                 #.text ne vrne drzave saj je samo ikona (flagicon) zato izluščim title
                 drzava = str(td[4]).split('title=')
                 drzava = drzava[1].split('"><img alt=')
                 drzava = drzava[0].replace('"','') 
-
-                vrednost = [k.text.replace('\n','') for k in td]
 
                 #čiščenje vrednosti klub presledki pred in za imenom
                 if str(vrednost[4])[-1] == ' ':
@@ -60,18 +60,19 @@ def ustvari_df(vrstice,df,i,kam):
                 
 
                 #če vrednost fee zavzame neke vrednosti  => je loan => ne upoštevam v analizi
-                if str(vrednost[5]) != 'N/A' and str(vrednost[5]) != 'Loan' and str(vrednost[5]) != '—' and vrednost[5]!= 'Neznana':
+                if str(vrednost[5]) not in ['N/A','Loan','—','Neznana']
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[4],vrednost[5],i]
                     df.loc[j-1] = vrednost
         
         else:
+            #list posameznih vrednosti ('stolpcev')
+            vrednost = [k.text.replace('\n','') for k in td]
+
             #drzava je le flagicon zato iscem iz title
             drzava = str(td[2]).split('title=')
             drzava = drzava[1].split('"><img alt=')
             drzava = drzava[0].replace('"','')
 
-            #list posameznih vrednosti ('stolpcev')
-            vrednost = [k.text.replace('\n','') for k in td]
 
             #čiščenje vrednosti klub
             if vrednost[6] != '':
@@ -115,7 +116,7 @@ def ustvari_df(vrstice,df,i,kam):
                 if str(vrednost[9])=='Free':
                     vrednost[9] = 0
 
-                if str(vrednost[9]) not in ['N/A','Loan','—'] and str(vrednost[7]) != 'Loan' and str(vrednost[7]) != 'Loan return' and vrednost[6]!=42:
+                if str(vrednost[9]) not in ['N/A','Loan','—'] and str(vrednost[7]) not in ['Loan','Loan return'] and vrednost[6]!=42:
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[6],vrednost[9],i]
                     df.loc[j-1] = vrednost   
             else:
@@ -142,14 +143,14 @@ def ustvari_df(vrstice,df,i,kam):
 
                 #leto 2002, 2018 in 2019 imajo vrednosti prestopov z ',' torej npr 10,000,000
                 if i == 2002:
-                    if str(vrednost[10])!='Free' and str(vrednost[10])!='Loan':
+                    if str(vrednost[10]) not in ['Free','Loan']:
                         vrednost[10] = str(int(vrednost[10])/10**6)
 
                 elif str(vrednost[10]) == 'Free':
                     vrednost[10] = 0
 
                 #zapišemo v vrstico, če je prestop samo posoja ga ne upoštevam
-                if str(vrednost[10]) != 'N/A' and str(vrednost[10]) != 'Loan' and str(vrednost[10]) != '—' and str(vrednost[7]) != 'Loan' and str(vrednost[7]) != 'Loan return':
+                if str(vrednost[10]) not in ['N/A','Loan','—'] and str(vrednost[7]) not in ['Loan','Loan return']:
                     vrednost = [vrednost[3], drzava, vrednost[1],vrednost[6],vrednost[10],i]
                     df.loc[j-1] = vrednost   
 
