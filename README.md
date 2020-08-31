@@ -14,7 +14,7 @@ Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Mas
   4. Klub iz katerega je prišel oziroma v katerega je šel igralec
   5. Cena prestopa
 
-**Hipoteze:**
+**Hipoteze in vprašanja:**
 * Kako je zrasla vrednost povprečenga nakupa po prodaji Neymarja (ali je zrasla?)
 * Ali Barcelona vedno več vlaga v nakupe in ali razlika med vrednostjo prihodov in odhodov raste?
 * Število nakupov in prodaj (kako je bilo z nakupi v času 'zlate generacije' La Masie - manj?)
