@@ -68,7 +68,7 @@ Ljubljana, 2020}
 \pagebreak
 
 
-\thispagestyle{empty}
+\section{Uvod}
 \begin{center}
 {\bf Analiza nogometnih transferjev FC Barcelona (2000-2020)}\\[3mm]
 {\sc Uvod} \\ \medskip
@@ -146,7 +146,7 @@ Sedaj, ko imamo podatke zbrane in očiščene ter shranjene v csv tabelah lahko 
 
 \begin{center}
 \includegraphics[width=0.9\textwidth]{analiza}
-\captionof{figure}{Izluščevanje državljanstva in pridobivanje vrednosti}
+\captionof{figure}{Združevanje tabel v 2 skupni (prihod in odhod)}
 \label{fig:analiza}
 \end{center}
 
@@ -188,7 +188,7 @@ Razlika tega ukaza in analognega za odhod nam vrne gibanje števila razlike prih
 
 \subsection{Cene prestopov}
 Sedaj se nam pojavi tretje vprašanje. Torej kaj se dogaja s cenami prestopov in ali Barcelona v zadnjih dvajsetih letih služi s transferji. 
-Za začetek si poglejmo razliko med vsoto odhodov po letih in vsoto prihodov po letih. Vsota vseh prihodov po letih lahko dobimo z ukazom $prihod.groupby('Leto').sum()$. Na sliki \ref{fig:graf4} vidimo kakšna je ta razlika po letih, bolj natančne podatke pa na sliki \ref{fig:tabela1}. 
+Za začetek si poglejmo razliko med vsoto odhodov po letih in vsoto prihodov po letih. Vsota vseh prihodov po letih lahko dobimo z ukazom $prihod.groupby('Leto').sum()$. Na sliki \ref{fig:graf4} vidimo kakšna je ta razlika po letih, na sliki \ref{fig:graf5} pa vidimo kako seštevek vložkov v prestope skozi leta raste, kjer so odhodi šteti negativno, prihodi pa pozitivno (da smo na pozitivnem delu osi y). Bolj natančne podatke pa na sliki \ref{fig:tabela1}.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{graf4}
@@ -198,16 +198,39 @@ Za začetek si poglejmo razliko med vsoto odhodov po letih in vsoto prihodov po 
 \includegraphics[width=0.45\textwidth]{tabela1}
 \captionof{figure}{Histogram gibanja razlike potrošnje za prestope}
 \label{fig:tabela1}
+
+\includegraphics[width=0.75\textwidth]{graf5}
+\captionof{figure}{Graf gibanja dohodkov, odhodkov in razlike transferjev}
+\label{fig:graf5}
 \end{center}
 
 Izkaže se, da barcelona ne služi s transferji ampak ustvarja kar velik minus.
 Zanimivo je opaziti vpliv prestopa Neymarja, ko je Barcelona v istem letu porabila skoraj še enkrat več kot je zanj dobila, da bi pokrila luknjo, ki jo je ustvaril njegov odhod.
-Druga največja razlika se pojavi leta 2019. Verjetno najboljši igralec nogometa Lionel Messi se bliža koncu svoje kariere, zato je klub želel z njim osvojiti še čim več lovorik. 
-Iz tega razloga in slabših rezlutatov po letu 2017 klub veliko več kupuje kot prodaja, a žal rezultati ne kažejo na izboljšanje.
+Druga največja razlika se pojavi leta 2019. Verjetno najboljši igralec nogometa Lionel Messi se bliža koncu svoje kariere, zato je klub želel z njim osvojiti še čim več lovorik in posledično več vlagal v dražje nakupe oziroma igralce s takojšnim vplivom na igro (za razliko do vlaganje v mlade za prihodnost). 
+
+\subsection{Naraščanje razlike med vrednostjo nakupov in skupno vrednostjo prodaj}
+Barcelona ima dokaj strmo naraščanje razlike med skupno vrednostjo nakupov in skupno vrednostjo prodaj. Kar pomeni, da klub v splošnem skozi čas
+vedno več vlaga v nakupe, saj graf skupne vrednosti prodaj tudi raste.
+
+Poglejmo s kakšno eksponentno funkcijo bi lahko v našem obdobju ocenili rast razlike ali tako imenovan postopek ``curve fitting''. Uporabimo knjižnico numpy in funkcijo $polyfit$. 
+Ker imamo eksponentno funkcijo in rabimo polinom, ter so vse vrednosti razlike med skupno vrednostjo nakupov in skupno vrednostjo prodaj pozitivne, lahko brez težav logaritmiramo.
+Naša funkcija bo oblike $y=e^{xb+a}$, torej bo polinom oblike $log(y)=xb+a$, to bodo podatki, ki jih bomo vstavili v funkcijo za iskanje najbolje prilegajoče funkcije po metodi najmanjših kvadratov. Zapis kode je na sliki \ref{fig:analiza3}. Funkcija $polyfit$ nam vrne koeficiente polinomov ter, če dodamo argument $full=True$ še druge podatke kot na primer vsoto kvadratov residualov (VKR), to je vsota kvadratov razlik med vrednostmi y in njihovimi ocenami (torej vsota kvadratov napak). 
+Najbolje prilegajoča eksponentna funkcija je $e^{0.15x+4.26}$ z VKR=$1.37$. Graf prilegajoče funkcije je na sliki \ref{fig:graf7}.
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{analiza3}
+\captionof{figure}{Koda s katero dobimo aproksimacijo naših podatkov z eksponentno funkcijo}
+\label{fig:analiza3}
+
+\includegraphics[width=0.7\textwidth]{graf7}
+\captionof{figure}{Graf razlike med vrednostjo nakupov in skupno vrednostjo prodaj in njeno eksponentno aproksimacijo}
+\label{fig:graf7}
+\end{center}
+
 
 \subsection{So Brazilci v povprečju najdražji?}
 Sedaj nas zanima povprečna cena prestopa po državah, da vidimo katero državljanstvo imajo igralci, ki so najvec vpleteni v prestope. 
-Ker gledamo povprečne vrednosti je treba paziti tudi koliko prestopov je bilo v opazovanem obdobju za posamezno državljanstvo. Zato si poglejmo vrednosti ko imamo vsaj 5 prestopov za državljanstvo in nato še za vsaj 10. Če bi izbrali brez omejitev je najdražji prestop Rusi (Malcom 2019) z vrednostjo  v povprečju 40 milijonov \euro $\,$ ampak je ta prestop le en. Na slikah \ref{fig:tabela2} in \ref{fig:tabela3} je tabelarični prikaz povprečnih vrednosti prestopov po državljanstvih z vsaj 5 prestopi in vsaj 10 prestopi. Na sliki \ref{fig:tabela4} pa imamo vsote vseh prestopov, kjer vrednost preseže 50 milijonov \euro. 
+Ker gledamo povprečne vrednosti je treba paziti tudi koliko prestopov je bilo v opazovanem obdobju za posamezno državljanstvo. Zato si poglejmo vrednosti ko imamo vsaj 5 prestopov za državljanstvo in nato še za vsaj 10. Če bi izbrali brez omejitev so v povprečju najdražji prestopi igralci iz Rusije z vrednostjo v povprečju 40 milijonov \euro $\,$ ampak je ta prestop le en. Na slikah \ref{fig:tabela2} in \ref{fig:tabela3} je tabelarični prikaz povprečnih vrednosti prestopov po državljanstvih z vsaj 5 prestopi in vsaj 10 prestopi. Na sliki \ref{fig:tabela4} pa imamo vsote vseh prestopov, kjer vrednost preseže 50 milijonov \euro. 
 \\
 Opazimo, da v primeru, ko imamo vsaj 5 prestopov so v povprečju nadražji prestopi Portugalci s povprečno vrednostjo 26.28 milijona \euro. Za vrednosti nad 10 pa naša hipoteza drži saj so na najdražjem mestu Brazilci z vrednostjo 18.45 milijona \euro $\:$ in tudi na najdražjem mestu vsote vrednosti prestopov z vsoto 719.40 milijona \euro. Dokaj prepričljivo bi lahko rekli, da hipoteza drži.
 
@@ -234,26 +257,51 @@ Opazimo, da v primeru, ko imamo vsaj 5 prestopov so v povprečju nadražji prest
 Nato razporedimo vse prestope prek ukaza $groupby.('Drzavljanstvo')$ jih seštejemo prek ukaza $sum()$, shranimo pod $x$ in izvedemo ukaz $[x>50].sort\_values('Cena').dropna()$. 
 Ta ukaz nam vrne vse vsote nad 50 milijonov \euro $\:$, jih razporedi po ceni (padajoče) in zbriše vrednosti NaN. NaN bodo tiste vrednosti, kjer je vsota manjša od 50 milijonov \euro.
 
-\subsection{Najbolje trgovane pozicije}
-Za zaključek si odgovorimo še na zadnje vprašanje katere pozicije na igrišču so najbolj trgovane. Na slikah \ref{fig:tabela5}, \ref{fig:tabela6} in \ref{fig:tabela7} lahko po vrsti vidimo tabelo prihodov, odhodov in skupno. Kar je tu pomembno opozoriti je, da pri skupni tabeli opazujemo po igralcih tako, da je prestop štet le enkrat tudi, če je igralec prestopil večkrat. To dosežemo z ukazom $vsi.drop\_duplicates(subset='Ime')$.\\
+\subsubsection{Skupne cene prestopov po državah}
+Dodatno lahko omenimo še, kako se gibajo skupne vrednosti prestopov za 4 države z največjo skupno vrednostjo, kar lahko vidimo na sliki \ref{fig:graf6}. Tu spet lahko opazimo vpliv prestopa Neymarja (Brazilija) in posledično nakupa Coutinha (Brazilija) v istem prestopnem roku in, ker je skupna vrednost teh dveh prestopov skoraj 400 mio. \euro, opazimo lahko velik skok skupne vrednosti za Brazilce.
 
-\begin{minipage}[t]{0.33\textwidth}
-\includegraphics{tabela5}
-\captionof{figure}{Število vseh prestopov po pozicijah}
-\label{fig:tabela5}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.32\textwidth}
-\includegraphics{tabela6}
-\captionof{figure}{Število prihodov po pozicijah}
-\label{fig:tabela6}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.32\textwidth}
-\includegraphics{tabela7}
-\captionof{figure}{Število odhodov po pozicijah}
-\label{fig:tabela7}
-\end{minipage} 
+\begin{center}
+\includegraphics[width=0.9\textwidth]{graf6}
+\captionof{figure}{Gibanje skupne vrednosti prestopov}
+\label{fig:graf6} 
+\end{center}
+
+\subsection{Najbolje trgovane pozicije}
+Za zaključek si odgovorimo še na zadnje vprašanje katere pozicije na igrišču so najbolj trgovane. Na slikah \ref{fig:tabela5}, \ref{fig:tabela6} in \ref{fig:tabela7} lahko po vrsti vidimo tabelo prihodov, odhodov in skupno. GK nam predstavlja vratarje, DF branilce, MF veziste in FW napadalce. Kar je tu pomembno opozoriti je, da pri skupni tabeli poizvedujemo po igralcih tako, da je prestop štet le enkrat tudi, če je igralec prestopil večkrat. To dosežemo z ukazom $vsi.drop\_duplicates(subset='Ime')$.\\
+
+
+\begin{figure}[!htb]
+\minipage{0.38\textwidth}
+\includegraphics[width=\linewidth]{tabela5}
+\caption{Število prestopov po pozicijah}\label{fig:tabela5}
+\endminipage\hfill
+\minipage{0.29\textwidth}
+\includegraphics[width=\linewidth]{tabela6}
+\caption{Število prihodov po pozicijah}\label{fig:tabela6}
+\endminipage\hfill
+\minipage{0.29\textwidth}
+\includegraphics[width=\linewidth]{tabela7}
+\caption{Število odhodov po pozicijah}\label{fig:tabela7}
+\endminipage\hfill
+\end{figure}
+
+Tu je zanimivo opaziti, da je večina prihodov v Barcelono branilcev (DF), čeprav je nogometni klub taktično napadalno naravnan. Smiselna razlaga bi bila, da zaradi svoje filozofije ne "vzgojijo" $\:$ toliko branilcev in jih morajo posledično kupovati.
+
+
+
+\pagebreak
+
+\section{Zaključek}
+S pomočjo uvoza podatkov in analize smo si uspeli odgovoriti na zastavljena vprašanja in sprejeli vse tri hipoteze. 
+
+\begin{itemize}
+\item Prestop Neymarja je imel vpliv na povprečno ceno prestopov, ta je višja kot pred letom 2017
+\item Število nakupov v času zlate dobe La Masie je sicer res manjše od števila prodja, a to velja tudi v splošnem
+\item Brazilci so res najdražji, če je prestopov določene države večje od 10, prav tako imajo največjo skupno vrednost
+\end{itemize}
+
+Pridobivanje podatkov je bilo močno olajšano s pomočjo knjižnice BeautifulSoup, saj ni bilo dela z regularnimi izrazi, kar bi zaradi raznolikosti tabel po letih, lahko pomenilo veliko dela z izluščevanjem tabel.\\
+Večje število raznolikih podatkov nam omogoča več raznolike, natančnejše analize in lažje iskanje povezav med podatki oziroma vplivom dogodkov na podatke. Predvsem so zanimivi podatki gibanja skozi čas saj je pri njih aproksimiranje smiselno kot napoved prihodnosti. \\
 
 
 %======================================================================
