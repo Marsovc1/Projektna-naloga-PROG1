@@ -3,10 +3,10 @@
 Analiza nogometnih prestopov FC Barcelona
 ==================================================================
 
-Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Masie) pri nogometnem klubu FC Barcelona.
+Analiziral bom prestope zadnjih 19 let (od 2000-01 do danes) pri nogometnem klubu FC Barcelona.
 
 **Podatki:**
-* 'https://en.wikipedia.org/wiki/xy-xy+1_FC_Barcelona_season'; kjer xy predstavljata leto oblike 20..,20..+1 (npr xy=01 2001-2002)
+* 'https://en.wikipedia.org/wiki/xy-xy+1_FC_Barcelona_season'; kjer xy predstavljata leto oblike 20..,20..+1 (npr xy=01 => 2001-2002)
 * Za vsako sezono bom pobral podatke odhodov in prihodov:
   1. Ime
   2. Državljanstvo
