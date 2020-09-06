@@ -21,4 +21,4 @@ Analiziral bom prestope zadnjih 19 (2000-01) let (pred 'zlato generacijo' La Mas
 * So Brazilci v povprečju najdražji (pri prestopih) pri Barceloni?
 * Katere pozicije Barcelona največ 'kupuje' in katere 'prodaja'?
 
-Končno poročilo se nahaja v datoteki Poročilo.pdf
+Končno poročilo se nahaja v datoteki **Poročilo.pdf**
