@@ -168,7 +168,7 @@ Za izris grafa pa uvozimo knjižnico $matplotlib.pyplot$ in z ukazom $plot()$ iz
 \label{fig:analiza2}
 \end{center} \medskip
 
-\subsection{Gibanje števila nakupov in prodaj}
+\subsection{Števila nakupov in prodaj}
 Naslednje vprašanje, ki smo si ga zastavili je gibanje števila nakupov in prodaj s hipotezo kako je bilo z nakupi v času 'zlate generacije' La Masie jih je bilo manj. Za obdobje zlate generacije določimo obdobje od leta 2004 do leta 2012. Na sliki \ref{fig:graf2} lahko vidimo, da je graf prihodov v tem obdobju z izjemo leta 2010 pod grafom odhodov. Ta razlika pa je še bolj očitna na sliki \ref{fig:graf3}. Na obeh slikah je obdobje v rdečem pravokotniku.
 
 \begin{minipage}{0.49\textwidth}
@@ -184,7 +184,14 @@ Naslednje vprašanje, ki smo si ga zastavili je gibanje števila nakupov in prod
 
 Opazimo pa tudi, da ni bilo le obdobje zlate dobe La Masie tisto, ko je Barcelona več prodajala kot kupovala, ampak večinoma velja kar za celotno obdobje zadnjih 20 let. Torej hipoteza drži ampak, velja še več, saj je nakupov v splošnem manj kot prodaj.
 Do teh podatkov smo prišli s pomočjo ukaza $prihod.groupby('Leto').size()$, ki nam na tabeli \textbf{prihod} združi prestope po letih, $size()$ pa vrne število vrstic, ki pripadajo posameznim letom. 
-Razlika tega ukaza in analognega za odhod nam vrne gibanje števila razlike prihodov in odhodov, ki jo nato narišemo na graf. \medskip
+Razlika tega ukaza in analognega za odhod nam vrne gibanje števila razlike prihodov in odhodov, ki jo nato narišemo na graf.
+\medskip \\ 
+Sedaj si poglejmo, s pomočjo knjižnice GeoPandas, kako izgleda skupno število prestopov na zemljevidu. Torej tako imenovan 'koroplet' zemljevid. Ta zemljevid nam bo obarval določene države, glede na število državljanstev v prestopih iz te države.
+Na sliki \ref{fig:zemljevid} lahko vidimo, kako Španija prevladuje po številu prestopov, v zadnjih dvajsetih letih je bilo teh kar 96, na drugem mestu pa je Brazilija z 39 in nato Francija s 23. Da je na prvem mestu Španija je seveda smiselno, saj je FC Barcelona katalonski(španski) klub.
+
+\includegraphics[width=1\textwidth]{zemljevid}
+\captionof{figure}{Koroplet zemljevid}
+\label{fig:zemljevid}
 
 \subsection{Cene prestopov}
 Sedaj se nam pojavi tretje vprašanje. Torej kaj se dogaja s cenami prestopov in ali Barcelona v zadnjih dvajsetih letih služi s transferji. 
@@ -300,7 +307,7 @@ S pomočjo uvoza podatkov in analize smo si uspeli odgovoriti na zastavljena vpr
 \end{itemize}
 
 Pridobivanje podatkov je bilo močno olajšano s pomočjo knjižnice BeautifulSoup, saj ni bilo dela z regularnimi izrazi, kar bi zaradi raznolikosti tabel po letih, lahko pomenilo veliko dela z izluščevanjem tabel.\\
-Večje število raznolikih podatkov nam omogoča več raznolike, natančnejše analize in lažje iskanje povezav med podatki oziroma vplivom dogodkov na podatke. Predvsem so zanimivi podatki gibanja skozi čas saj je pri njih aproksimiranje smiselno kot napoved prihodnosti. \\
+Večje število raznolikih podatkov nam omogoča več raznolike, natančnejše analize in lažje iskanje povezav med podatki oziroma vplivom dogodkov na podatke. Predvsem so zanimivi podatki gibanja skozi čas, saj je pri njih aproksimiranje smiselno kot napoved prihodnosti, in podatki, ki so vezani na neko geografsko območje, saj lahko nato rišemo zemljevide, ki nam interaktivno prikažejo analizirane podatke. \\
 
 
 %======================================================================
